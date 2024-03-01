@@ -14,37 +14,14 @@ import java.awt.event.ActionListener;
 public class form {
     private JTextField nombreTF;
     private JTextField cali2;
-    JPanel calificaciones;
+    JPanel pasatiempos;
     private JTextField pasatiemposTF;
     private JTextField DescripcionTF;
     private JButton ingresarButton;
+    private JButton revisarButton;
 
     public form(){
 
-//        button1.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                MongoClient mongoClient = MongoClients.create("mongodb+srv://esfot:esfot2024@cluster0.xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
-
-//                MongoDatabase database = mongoClient.getDatabase("mybd2");
-//                MongoCollection<Document> collection = database.getCollection("mycollection");
-
-//                Document document = new Document
-//                        ( "name",nombre.getText())
-//                        .append("Calificación 1:", cali1.getText())
-//                        .append("Calificación 2:",cali2.getText());
-//
-//                collection.insertOne(document);
-//                System.out.println("Insertados");
-//            }
-//        });
-//        actualizarButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                Main.frame.setContentPane(new form2().actualizarCalificaciones);
-//                Main.frame.revalidate();
-//            }
-//        });
         ingresarButton.addActionListener(e -> {
             MongoClient mongoClient = MongoClients.create("mongodb+srv://esfot:esfot2024@cluster0." +
                     "xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
@@ -57,5 +34,16 @@ public class form {
             collection.insertOne(document);
             mongoClient.close();
         });
+        revisarButton.addActionListener(e -> {
+            MongoClient mongoClient = MongoClients.create("mongodb+srv://esfot:esfot2024@cluster0." +
+                    "xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+            MongoDatabase database = mongoClient.getDatabase("DeberPoo");
+            MongoCollection<Document> collection = database.getCollection("Pasatiempos");
+            for (Document doc : collection.find()) {
+                System.out.println(doc.toJson());
+            }
+
+        });
     }
+
 }
