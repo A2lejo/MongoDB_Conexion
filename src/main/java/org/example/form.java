@@ -2,6 +2,9 @@ package org.example;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -43,8 +46,16 @@ public class form {
 //            }
 //        });
         ingresarButton.addActionListener(e -> {
-            MongoClient mongoClient = MongoClients.create("mongodb+srv://esfot:esfot2024@cluster0.xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
-
+            MongoClient mongoClient = MongoClients.create("mongodb+srv://esfot:esfot2024@cluster0." +
+                    "xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+            MongoDatabase database = mongoClient.getDatabase("DeberPoo");
+            MongoCollection<Document> collection = database.getCollection("Pasatiempos");
+            Document document = new Document();
+            document.append("Nombre",nombreTF.getText());
+            document.append("Pasatiempo:",pasatiemposTF.getText());
+            document.append("Descripcion:",DescripcionTF.getText());
+            collection.insertOne(document);
+            mongoClient.close();
         });
     }
 }

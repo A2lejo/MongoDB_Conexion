@@ -21,7 +21,7 @@ public class Main {
         frame.setSize(480,560);
         frame.setVisible(true);
 
-        MongoClient mongoClient = MongoClients.create("mongodb+srv://esfot:esfot2024@cluster0.xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+        //MongoClient mongoClient = MongoClients.create("mongodb+srv://esfot:esfot2024@cluster0.xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 
         /*MongoClient = MongoClients.create("mongodb://localhost:27017");
 
