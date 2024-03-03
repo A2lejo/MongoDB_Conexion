@@ -8,5 +8,5 @@
 
 ![image](https://github.com/A2lejo/MongoDB_Conexion/assets/133398181/91a4ec0f-4e5b-451c-afb6-cbd982433d38)
 
+![image](https://github.com/A2lejo/MongoDB_Conexion/assets/133398181/766598cb-f1d3-48a5-bf85-e327197a8596)
 
-![image](https://github.com/A2lejo/MongoDB_Conexion/assets/133398181/9677b75c-96f1-482e-ade3-7084374dc3c6)
