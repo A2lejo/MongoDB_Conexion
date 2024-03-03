@@ -8,7 +8,7 @@ import  org.bson.Document;
 
 
 public class Main {
-    static JFrame frame = new JFrame("Calificaciones");
+    static JFrame frame = new JFrame("PASATIEMPOS");
 
     public static void main(String[] args) {
 

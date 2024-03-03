@@ -12,6 +12,8 @@ import java.util.Vector;
 
 
 public class form {
+    String usuario = "esfot";
+    String password = "esfot2024";
     private JTextField nombreTF;
     JPanel pasatiempos;
     private JTextField pasatiemposTF;
@@ -21,10 +23,11 @@ public class form {
     private JScrollPane mostar;
     private JTable tabla;
 
+
     public form(){
 
         ingresarButton.addActionListener(e -> {
-            MongoClient mongoClient = MongoClients.create("mongodb+srv://esfot:esfot2024@cluster0." +
+            MongoClient mongoClient = MongoClients.create("mongodb+srv://"+usuario+":"+password+"@cluster0." +
                     "xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
             MongoDatabase database = mongoClient.getDatabase("DeberPoo");
             MongoCollection<Document> collection = database.getCollection("Pasatiempos");
@@ -36,13 +39,12 @@ public class form {
             mongoClient.close();
         });
         revisarButton.addActionListener(e -> {
-            MongoClient mongoClient = MongoClients.create("mongodb+srv://esfot:esfot2024@cluster0." +
+            MongoClient mongoClient = MongoClients.create("mongodb+srv://"+usuario+":"+password+"@cluster0." +
                     "xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
             MongoDatabase database = mongoClient.getDatabase("DeberPoo");
             MongoCollection<Document> collection = database.getCollection("Pasatiempos");
 
             DefaultTableModel model = new DefaultTableModel();
-
             model.addColumn("Nombre");
             model.addColumn("Pasatiempo");
             model.addColumn("Descripcion");
