@@ -10,3 +10,8 @@
 
 ![image](https://github.com/A2lejo/MongoDB_Conexion/assets/133398181/766598cb-f1d3-48a5-bf85-e327197a8596)
 
+### Link del video subido a youtube
+
+https://youtu.be/ot1wjNELUgU
+
+
