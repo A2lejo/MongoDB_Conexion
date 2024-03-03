@@ -15,7 +15,7 @@ public class Main {
         frame.setContentPane(new form().pasatiempos);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(480,560);
+        frame.setSize(680,760);
         frame.setVisible(true);
 
     }

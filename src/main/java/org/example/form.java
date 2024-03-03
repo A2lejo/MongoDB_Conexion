@@ -7,18 +7,19 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
+import java.util.Vector;
 
 
 public class form {
     private JTextField nombreTF;
-    private JTextField cali2;
     JPanel pasatiempos;
     private JTextField pasatiemposTF;
     private JTextField DescripcionTF;
     private JButton ingresarButton;
     private JButton revisarButton;
+    private JScrollPane mostar;
+    private JTable tabla;
 
     public form(){
 
@@ -39,10 +40,23 @@ public class form {
                     "xzffuex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
             MongoDatabase database = mongoClient.getDatabase("DeberPoo");
             MongoCollection<Document> collection = database.getCollection("Pasatiempos");
-            for (Document doc : collection.find()) {
-                System.out.println(doc.toJson());
-            }
 
+            DefaultTableModel model = new DefaultTableModel();
+
+            model.addColumn("Nombre");
+            model.addColumn("Pasatiempo");
+            model.addColumn("Descripcion");
+
+            for (Document doc : collection.find()) {
+                Vector<String> row = new Vector<>();
+                row.add(doc.getString("Nombre"));
+                row.add(doc.getString("Pasatiempo:"));
+                row.add(doc.getString("Descripcion:"));
+                model.addRow(row);
+            }
+            tabla.setModel(model);
+
+            mongoClient.close();
         });
     }
 
